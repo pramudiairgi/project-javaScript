@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mask Email</title>
+</head>
+<body>
+    <h2>Build Mask Email</h2>
+    <p>
+        1. Buat fungsi bernama maskEmail yang mengambil email sebagai argumen. <br>
+        2. Di dalam fungsi tersebut, Anda harus menutupi email dan tambahkan nama domain ke dalamnya. <br>
+        3. Ingatlah bahwa Anda dapat menggunakan metode seperti slice, repeat, indexOf atau bahkan replace untuk membantumu. <br>
+        4. Di luar fungsi, deklarasikan variabel bernama email untuk menyimpan alamat email yang ingin Anda topeng. <br>
+        5. Call the maskEmail fungsi dengan email variabel dan output hasilnya ke konsol. <br>
+        maskEmail("apple.pie@example.com") seharusnya kembali "a*******e@example.com". <br>
+        maskEmail("freecodecamp@example.com") seharusnya kembali "f**********p@example.com". <br>
+        maskEmail("info@test.dev") seharusnya kembali "i**o@test.dev". <br>
+        maskEmail("user@domain.org") seharusnya kembali "u**r@domain.org".
+    </p>
+    <script>
+        function maskEmail(email){
+            const atIndex = email.indexOf('@')
+            const firstChar = email.slice(0,1)
+            const lastChar = email.slice(atIndex -1, atIndex)
+            const domain = email.slice(atIndex) 
+            const maskedLength = atIndex -2
+            const maskedPart = '*'.repeat(maskedLength)
+            const maskedEmail = firstChar + maskedPart + lastChar + domain
+
+            return maskedEmail
+
+        }
+        const email = "apple.pie@example.com"
+        console.log(maskEmail(email))
+
+        const email1 = "irgipramudia@example.com"
+        console.log(maskEmail(email1))
+    </script>
+</body>
+</html>

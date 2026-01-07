@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celcius to Fahrenheit Converter</title>
+</head>
+<body>
+    <p>
+        1. You should create a function named convertCtoF. <br>
+        2. convertCtoF should take a single numeric argument, which is the temperature in Celsius. <br>
+        3. convertCtoF should return a number.
+    </p>
+    <div style="border: 1px solid #ccc; padding: 20px; border-radius: 8px; max-width: 300px;">
+        <h3>Konversi Celcius ke Fahrenheit</h3>
+
+        <label for="inputCelcius">Masukan Celcius:</label><br>
+        <input type="number" id="inputCelcius" placeholder="Contoh: 16" oninput="hitungKonversi()">
+
+        <p>Hasil: <strong><span id="hasilFahrenheit">32</span> °F</strong></p>
+        
+    </div>
+
+    <script>
+        function convertCtoF(celcius) {
+            return celcius * ( 9 / 5) + 32
+        }
+        function hitungKonversi() {
+            // ambil nilai dari input 
+            let nilaiInput = document.getElementById("inputCelcius").value 
+            // kondisi dimana jika input kosong akan di set 0 agar tidak error 
+            if (nilaiInput === "") nilaiInput = 0
+            // panggil fungsi konversi 
+            let fahrenheit = convertCtoF(parseFloat(nilaiInput))
+            // menampilkan hasil ke elemen span 
+            document.getElementById("hasilFahrenheit").innerHTML = fahrenheit.toFixed(2)
+
+        }
+    </script>
+</body>
+</html>

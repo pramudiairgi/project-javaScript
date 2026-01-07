@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Counting</title>
+</head>
+<body>
+    <h3>Card Counting Assistent</h3>
+    <p>
+        You should use let to declare a global variable named count and set it to 0. <br>
+        You should have a function called cardCounter. <br>
+        The cardCounter function should receive a card parameter which can either be a number or string. <br>
+        For values between 2 to 10, the card parameter will be a number. <br>
+        For all other values, the card parameter will be a string. <br>
+        The cardCounter function should modify the global count variable based on certain criteria. <br>
+        The global count variable should be increased by 1 for the cards 2, 3,4, 5, or 6 <br>
+        The global count variable should remain unchanged for the cards 7, 8, 9. <br>
+        The global count variable should be decreased by 1 for the cards 10, "J", "Q", "K", "A" <br>
+        The cardCounter function should return a string with current count and the string Bet if the count is positive. <br>
+        The cardCounter function should return a string with current count and the string Hold if the count is less than or equal to 0. <br>
+        In the function output, the current count and the player's decision (Bet or Hold) should be separated by a space. For example, -3 Hold.
+    </p>
+    <script>
+        let count = 0
+
+        function cardCounter(card) {
+            if ([2,3,4,5,6].includes(card)) {
+                count++
+            } else if ([10, "J", "Q", "K", "A"].includes(card)) {
+                count--
+            }
+            return count + " " + (count > 0 ? "Bet" : "Hold")
+        }
+        console.log(cardCounter(2))
+        // console.log(cardCounter(8))
+        // console.log(cardCounter("J"))
+    </script>
+</body>
+</html>

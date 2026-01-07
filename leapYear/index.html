@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leap Year</title>
+</head>
+<body>
+    <h3>Tahun Kabisat Kalkulator</h3>
+    <h4>Soal</h4>
+    <p>
+        Define a function called isLeapYear that takes a number as an argument. <br>
+
+        Outside the function, declare a variable year that stores the value of the year you want to check. <br>
+
+        Inside the function, use an if/ else statement or a ternary operator to check if the year is a leap year. <br>
+
+        To check if the year is a leap year, fulfill the following conditions: <br>
+
+        If the year is divisible by 4, then it is a leap year. <br>
+        Unless the year is also divisible by 100, then it is not a leap year. <br>
+        Unless the year is also divisible by 400, then it is a leap year. <br>
+        If the year is a leap year, return [year] is a leap year.. Otherwise, return [year] is not a leap year.. You will replace [year] with the parameter defined in the isLeapYear function. <br>
+
+        You should call the isLeapYear function with year as the argument and assign the result to a variable named result. <br>
+
+        You should output the result variable to the console using console.log().
+    </p>
+    <script>
+        let year = 2024
+
+        function isLeapYear(number){
+            let text
+            if (number % 4 === 0) {
+                if (number % 100 === 0) {
+                    if (number % 400 === 0) {
+                        text = "is a leap year."
+                    } else {
+                        text = "is not a leap year."
+                    }
+                } else {
+                    text = "is a leap year"
+                }
+            } else {
+                text = "is not a leap year."
+            }
+            return number + " " + text
+        }
+        const result = isLeapYear(year)
+        console.log(result)
+
+        /* cara lebih simple */
+        let tahun = 2024
+
+        function leapYear(tahunInput) {
+            let text
+            if (tahunInput % 4 === 0 && tahunInput % 100 !== 100 || tahunInput % 400 === 0) {
+                text = "tahun kabisat."
+            } else {
+                text =  "bukan tahun kabisat."  
+            }
+            return tahunInput + " " + text
+        }
+        const hasil = leapYear(tahun)
+        console.log(hasil)
+    </script>
+</body>
+</html>

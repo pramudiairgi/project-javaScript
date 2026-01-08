@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truncate String Algoritma</title>
+</head>
+<body>
+
+    <h3>Truncate String Algoritma</h3>
+    <p>
+        You should have a function truncateString that accepts two arguments, the first one a string, the second one a number. <br>
+        If the length of the string is more than the given number, the string should be truncated to reduce the length so that it is equal the given number, and ... should be appended at the end of the truncated string. <br>
+        If the length of the string is equal to or lower than the given number, the string should be returned unchanged.
+    </p>
+
+    <div>
+        <h3>Truncate String</h3>
+        <label for="inputTeks">Masukan teks bebas</label>
+        <input type="text" id="inputText" placeholder="contoh: ferrari adalah mobil impian" oninput="hitungText()"> <br>
+        <label for="inputBatas">Masukan Batas teks</label>
+        <input type="number" id="inputTruncate" placeholder="Contoh: 6" oninput="hitungText()">
+        <p id="demo"></p>
+    </div>
+    
+    <script>
+        function truncateString(str, num) {
+            if (str.length > num ) {
+                return str.slice(0, num) + "..."
+            } else {
+                return str 
+            }
+        }
+
+        function hitungText(){
+            let inputElementText = document.getElementById("inputText")
+            let inputElementBatas = document.getElementById("inputTruncate")
+            let nilaiText = inputElementText.value
+            let nilaiBatas = Number(inputElementBatas.value)
+            if (nilaiText === "") nilaiText = 0
+            let result = truncateString(nilaiText, nilaiBatas)
+
+            document.getElementById("demo").innerHTML = "Hasil: " + result
+        }
+    </script>
+</body>
+</html>

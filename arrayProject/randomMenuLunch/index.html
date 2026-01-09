@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Menu Lunch</title>
+</head>
+<body>
+    <h3>soal</h3>
+    <p>
+        Anda harus membuat sebuah lunches variabel dan menetapkannya array kosong yang akan digunakan untuk menyimpan item makan siang. <br><br>
+
+        Anda harus membuat fungsi addLunchToEnd itu mengambil array sebagai argumen pertama dan string sebagai argumen kedua. <br> Fungsi tersebut harus: <br>
+
+        Tambahkan string ke akhir array.
+        Catat stringnya [Lunch Item] added to the end of the lunch menu. ke konsol, di mana [Lunch Item] apakah string diteruskan ke fungsi. <br>
+        Kembalikan array yang diperbarui. <br><br>
+        Anda harus membuat fungsi addLunchToStart itu mengambil array sebagai argumen pertama dan string sebagai argumen kedua. Fungsi tersebut harus: <br>
+
+        Tambahkan string ke awal array.
+        Catat stringnya [Lunch Item] added to the start of the lunch menu. ke konsol, di mana [Lunch Item] apakah string diteruskan ke fungsi. <br>
+        Kembalikan array yang diperbarui. <br><br>
+        Anda harus membuat fungsi removeLastLunch itu mengambil array sebagai argumennya. Fungsi tersebut harus: <br>
+
+        Hapus elemen terakhir dari array.
+        Jika penghapusan berhasil, catat stringnya [Lunch Item] removed from the end of the lunch menu. ke konsol, di mana [Lunch Item] apakah elemen dihapus dari array. <br>
+        Jika array kosong, catat stringnya "No lunches to remove." ke konsol. <br>
+        Kembalikan array yang diperbarui. <br><br>
+        Anda harus membuat fungsi removeFirstLunch itu mengambil array sebagai argumennya. Fungsi tersebut harus: <br>
+
+        Hapus elemen pertama dari array. <br>
+        Jika penghapusan berhasil, catat stringnya [Lunch Item] removed from the start of the lunch menu. ke konsol, di mana [Lunch Item] apakah elemen dihapus dari array. <br>
+        Jika array kosong, catat stringnya "No lunches to remove." ke konsol. <br>
+        Kembalikan array yang diperbarui. <br><br>
+        Anda harus membuat fungsi getRandomLunch itu mengambil array sebagai argumennya. Fungsi tersebut harus: <br>
+
+        Pilih elemen acak dari array. <br>
+        Jika berhasil, catat stringnya Randomly selected lunch: <br> [Lunch Item] ke konsol, di mana [Lunch Item] adalah elemen acak dalam array. <br>
+        Jika array kosong, catat stringnya "No lunches available." ke konsol. <br><br>
+        Anda harus membuat fungsi showLunchMenu yang mengambil array sebagai argumennya dan: <br>
+
+        Jika ada elemen dalam array, log string Menu items: <br> [Lunch Item], [Lunch Item]... ke konsol, di mana masing-masing [Lunch item] adalah salah satu elemen dalam array, secara berurutan. <br>
+        Jika array kosong, log string "The menu is empty." ke konsol.
+
+    </p>
+    <script>
+        // mendeklarasikan variabel dan menetapkan array kosong
+        let lunches = ["sate", "bakso", "soto"]
+        // membuat function menambahkan string ke akhir array
+        function addLunchToEnd(arr, menu){
+            arr.push(menu)
+            return(`${menu} added to the end of the lunch menu.`)
+        }
+        console.log(addLunchToEnd(lunches, "Jagung"))
+
+        // membuat function menambahkan string ke awal array
+        function addLunchToStart(arr, menu) {
+            arr.unshift(menu)
+            return `${menu} added to the start of the lunch menu.`
+        }
+        console.log(addLunchToStart(lunches, "apple"))
+
+        // remove string terakhir
+        function removeLastLunch(arr){
+            if (arr.length == 0) {
+                return "No lunches to remove."
+            }
+            const lastItem = arr.pop()
+            return `${lastItem} removed from the end of the lunch menu.`
+        }
+        console.log(removeLastLunch(lunches))
+
+        // remove string pertama
+        function removeFirstString(arr){
+            if (arr.length == 0){
+                return "No lunches to remove"
+            }
+            const firstItem = arr.shift()
+            return `${firstItem} removed from the start of the lunch menu.`
+        }
+        console.log(removeFirstString(lunches))
+
+        // mendapatkan random menu
+        function getRandomLunch(arr){
+            if (arr.length == 0){
+                return "No lunches available."
+            }
+            const randomArr = Math.floor(Math.random() * arr.length)
+            const randomMenu = arr[randomArr]
+            return `Randomly selected lunch: ${randomMenu}`
+        }
+        console.log(getRandomLunch(lunches))
+
+        // menampilkan menu
+        function showLunchMenu(arr){
+            if (arr.length == 0){
+                return "The menu is empty"
+            }
+            const listMenu = arr.join(", ")
+            return `Menu items: ${listMenu}`
+        }
+        console.log(showLunchMenu(lunches))
+    </script>
+</body>
+</html>

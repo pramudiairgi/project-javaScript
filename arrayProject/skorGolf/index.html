@@ -4,9 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Skor Golf</title>
+    <style>
+        /* atur latar belakang seluruh halaman */
+        body {
+            background-color: aliceblue;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* atur konten */
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5 px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        input, button {
+            display: block;
+            margin:  10px auto;
+            padding: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h3>Penerjemah Skor Golf</h3>
+    <div class="card">
+        <h3>Skor Golf</h3>
+        <input type="number" id="inputPar" placeholder="Masukan Par">
+        <input type="number" id="inputStrokes" placeholder="Masukan Stroke">
+        <button onclick="hitungSkor()">Cek Skor</button>
+        <p>Score: <span id="hasilScore"></span></p>
+
+    </div>
     <script>
         const names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
 
@@ -28,7 +61,25 @@
                 return names[6]
             }
         }
-        console.log(golfScore(1,1))
+        const result = golfScore(1,2)
+
+        function hitungSkor(){
+            // ambil nilai input
+            let p = document.getElementById("inputPar").value 
+            let s = document.getElementById("inputStrokes").value
+
+            // ubah teks menjadi angka
+            let par = parseInt(p)
+            let strokes = parseInt(s)
+
+            // masukan kedalam fungsi golfScore
+            const result = golfScore(par, strokes)
+
+            // tampilkan ke layar
+            document.getElementById("hasilScore").innerHTML = result
+        }
+
+
     </script>
 </body>
 </html>

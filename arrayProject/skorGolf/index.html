@@ -1,85 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Skor Golf</title>
-    <style>
-        /* atur latar belakang seluruh halaman */
-        body {
-            background-color: aliceblue;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: sans-serif;
-        }
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h3>Skor Golf</h3>
+      <input type="text" id="inputName" placeholder="Masukan Nama" />
+      <input type="number" id="inputPar" placeholder="Masukan Par" />
+      <input type="number" id="inputStrokes" placeholder="Masukan Stroke" />
+      <button onclick="hitungSkor()">Cek Skor</button>
 
-        /* atur konten */
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5 px 15px rgba(0,0,0,0.1);
-            text-align: center;
-        }
-        input, button {
-            display: block;
-            margin:  10px auto;
-            padding: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <h3>Skor Golf</h3>
-        <input type="number" id="inputPar" placeholder="Masukan Par">
-        <input type="number" id="inputStrokes" placeholder="Masukan Stroke">
-        <button onclick="hitungSkor()">Cek Skor</button>
-        <p>Score: <span id="hasilScore"></span></p>
-
+      <label for="displayResult">Result:</label>
+      <div id="main-card" class="card">
+        <p><span id="displayResult"></span></p>
+      </div>
     </div>
-    <script>
-        const names = ["Hole-in-one!", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go Home!"];
-
-        // membuat function yang mengambil dua argumen numerik yaitu par dan stroke
-        function golfScore(par, strokes){
-            if (strokes == 1){
-                return names[0]
-            } else if (strokes <= par - 2){
-                return names[1]
-            } else if (strokes == par - 1){
-                return names[2]
-            } else if (strokes == par){
-                return names[3]
-            } else if (strokes == par + 1){
-                return names[4]
-            } else if (strokes == par + 2){
-                return names[5]
-            } else {
-                return names[6]
-            }
-        }
-        const result = golfScore(1,2)
-
-        function hitungSkor(){
-            // ambil nilai input
-            let p = document.getElementById("inputPar").value 
-            let s = document.getElementById("inputStrokes").value
-
-            // ubah teks menjadi angka
-            let par = parseInt(p)
-            let strokes = parseInt(s)
-
-            // masukan kedalam fungsi golfScore
-            const result = golfScore(par, strokes)
-
-            // tampilkan ke layar
-            document.getElementById("hasilScore").innerHTML = result
-        }
-
-
-    </script>
-</body>
+    <script src="index.js"></script>
+  </body>
 </html>

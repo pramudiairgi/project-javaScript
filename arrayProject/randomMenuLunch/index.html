@@ -45,11 +45,17 @@
 
      -->
         <div class="container">
-            <h3>Random Lunch</h3>
+            <h3>Tambah Menu </h3>
             <label for="inputMenu">Tambahkan menu: </label>
             <input type="text" id="inputMenu" placeholder="Contoh: Soto">
-            <button onclick="tambahMenu()">tambah</button>
+            <button onclick="tambahMenu()">Tambah</button>
+            <button onclick="hapusMenu()">hapus</button>
             <p>hasil: <span id="hasilInputMenu"> </span></p>
+        </div>
+        <div class="container">
+            <h3>Random Menu</h3>
+            <button onclick="randomMenu()">Acak Menu</button>
+            <p><span id="hasilRandomMenu"></span></p>
         </div>
     <script src="index.js">
        

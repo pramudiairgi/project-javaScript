@@ -1,11 +1,10 @@
  // mendeklarasikan variabel dan menetapkan array kosong
-        let lunches = ["sate", "bakso", "soto"]
+        let lunches = []
         // membuat function menambahkan string ke akhir array
         function addLunchToEnd(arr, menu){
             arr.push(menu)
-            return(`${menu} berhasil di tambahkan di menu makan siang.`)
+            return alert(`${menu} berhasil di tambahkan di menu makan siang.`)
         }
-        console.log(addLunchToEnd(lunches, "Jagung"))
 
         // membuat function menambahkan string ke awal array
         function addLunchToStart(arr, menu) {
@@ -38,7 +37,7 @@
             }
             const randomArr = Math.floor(Math.random() * arr.length)
             const randomMenu = arr[randomArr]
-            return `Randomly selected lunch: ${randomMenu}`
+            return `Menu terpilih: ${randomMenu}`
         }
 
         // menampilkan menu
@@ -47,14 +46,40 @@
                 return "The menu is empty"
             }
             const listMenu = arr.join(", ")
-            return `Menu items: ${listMenu}`
+            return `${listMenu}`
         }
 
         function tambahMenu (){
             // ambil nilai input
             let getInputMenu = document.getElementById("inputMenu").value
             
+            if (getInputMenu.trim() === ""){
+                alert("Silahkan masukan menu terlebih dahulu!")
+                return
+            }
+            if (lunches.includes(getInputMenu)){
+                alert("Menu ini sudah ada di daftar!")
+                document.getElementById("inputMenu").value = ""
+                return
+            }
+
             let addMenu = addLunchToEnd(lunches, getInputMenu)
+
+            let menu = showLunchMenu(lunches)
             
-            document.getElementById("hasilInputMenu").innerHTML = addMenu
+            document.getElementById("hasilInputMenu").innerHTML = menu
+
+            document.getElementById("inputMenu").value = ""
+        }
+        function hapusMenu(){
+            let del = removeLastLunch(lunches)
+            let menu = showLunchMenu(lunches)
+
+            document.getElementById("hasilInputMenu").innerHTML = menu
+        }
+
+        function randomMenu(){
+            let randomMenu = getRandomLunch(lunches)
+            
+            document.getElementById("hasilRandomMenu").innerHTML = randomMenu
         }

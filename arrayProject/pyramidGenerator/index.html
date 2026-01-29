@@ -7,9 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h2>PYRAMID GENERATOR</h3>
     <div class="container">
-        <h2>PYRAMID GENERATOR</h3>
-        <div class="content">
             <h3>Input</h3>
             <label for="pyramidType">Masukan jenis piramid</label>
             <input type="text" id="pyramidType" placeholder="contoh: *, o">
@@ -20,11 +19,13 @@
                 <option value="true">Kebawah</option>
                 <option value="false">Keatas</option>
             </select>
+            <button onclick="showPyramid()">Tampilkan</button>
         </div>
         <div class="content">
             <h3>Result</h3>
+            <pre id="displayResult"></pre>
         </div>
     </div>
-    <script src="index.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>

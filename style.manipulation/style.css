@@ -1,0 +1,14 @@
+.menu {
+    display: none;
+    background-color: whitesmoke;
+    width: 20%;
+    padding: 5px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.menu.show {
+    display: block;
+}
